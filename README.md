@@ -1,1 +1,1 @@
-Formulario de inscripcion de auxiliares
+Formulario de inscripción de auxiliares
