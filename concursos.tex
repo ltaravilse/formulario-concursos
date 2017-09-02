@@ -2,7 +2,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{dashrule}
+\usepackage{ifthen}
 \usepackage[pdftex,top=2.5cm,left=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+
+\input{datos_del_aspirante}
 
 \newcommand{\cargo}[1]{\noindent Concurso para el cargo de {#1} \hspace{0.5cm} Dedicación Simple}
 \newcommand{\cargoExclu}[1]{\noindent Concurso para el cargo de {#1} \hspace{0.5cm} Dedicación Exclusiva}
@@ -10,7 +13,8 @@
 
 \medskip
 
-\noindent {#1}\def\temp{#2}\ifx\temp\empty \else, {#2}\fi\def\temp{#3}\ifx\temp\empty \else, {#3} \fi}
+\noindent {#1}\ifthenelse{\equal{#2}{}}{}{, {#2}}\ifthenelse{\equal{#3}{}}{}{, {#3}}
+}
 
 \newcommand{\apellido}[1]{\noindent APELLIDO: {#1}}
 \newcommand{\nombre}[1]{\noindent NOMBRES: {#1}}
@@ -29,7 +33,7 @@
 \newcommand{\legajo}[1]{\noindent NÚMERO DE LEGAJO: {#1}}
 \begin{document}
 \begin{center}
-{\bf ANEXO ARTICULO No 7 RESOL. CD 28/09}
+{\bf ANEXO ARTÍCULO No 7 RESOL. CD 28/09}
 \end{center}
 {\bf \noindent FACULTAD DE CIENCIAS EXACTAS Y NATURALES
 
@@ -51,7 +55,7 @@
 
 %areas siempre toma tres parametros
 %dejar en blanco los ultimos si no se presentan a todas las areas
-\areas{Algoritmos}{Teoría}{}
+\areas{\primerAreaQueConcursa}{\segundaAreaQueConcursa}{\tercerAreaQueConcursa}
 
 \medskip
 
@@ -73,32 +77,32 @@
 
 \bigskip
 
-\nombre{Homero J.}
+\nombre{\nombresDelAspirante}
 
 \medskip
 
-\apellido{Simpson}
+\apellido{\apellidoDelAspirante}
 
 \medskip
 
-\dni{123.456.789}
+\dni{\numeroDocumentoDeIdentidadDelAspirante}
 
 \medskip
 
-\fechaNacimiento{12}{05}{1955}
+\fechaNacimiento{\numeroDiaNacimientoDelAspirante}{\numeroMesNacimientoDelAspirante}{\anioNacimientoDelAspirante}
 
 \medskip
 
-\email{hsimpson@plantanuclear.com}
+\email{\emailDelAspirante}
 
 % Agregar si fuiste ayudante
-%\medskip
-% 
-%\legajo{1234} 
+\medskip
+
+\legajo{\numeroDeLegajoDelAspirante}
 
 \bigskip
 
-\domicilio{Avenida Siempre Viva 742}{1$^\circ$ X}{Springfield}{3.14159}{0800-222-FCEN}
+\domicilio{\direccionDelDomicilioDelAspirante}{\pisoDelDomicilioDelAspirante}{\localidadDelDomicilioDelAspirante}{\codigoPostalDelDomicilioDelAspirante}{\telefonoDelDomicilioDelAspirante}
 
 \bigskip
 \bigskip
@@ -117,13 +121,12 @@ por Resolución del Consejo Directivo N$^\circ$ 28/09
 auxiliar docente con dedicación exclusiva o semiexclusiva es incompatible con
 el goce de una beca de igual dedicación.
 
-
 \bigskip
 \bigskip
 \bigskip
 \bigskip
 
-\noindent Buenos Aires, \fecha{26}{Septiembre}{2016}
+\noindent Buenos Aires, \fecha{\numeroDiaEntregaDeDocumentacion}{\nombreMesEntregaDeDocumentacion}{\anioEntregaDeDocumentacion}
 
 \bigskip
 \bigskip
@@ -176,7 +179,6 @@ el goce de una beca de igual dedicación.
 
 \bigskip
 
-
 \noindent a) \hfill \hdashrule{16cm}{0.5pt}{0.75pt}
 
 \medskip
@@ -203,7 +205,8 @@ el goce de una beca de igual dedicación.
 \bigskip
 \bigskip
 
-\noindent \fecha{26}{Septiembre}{2016}
+\noindent Fecha:
+\fecha{\numeroDiaEntregaDeDocumentacion}{\nombreMesEntregaDeDocumentacion}{\anioEntregaDeDocumentacion}
 
 \bigskip
 \bigskip
